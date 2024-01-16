@@ -1,10 +1,11 @@
-import constants as const
 import os
-from PIL import Image
-from neural_network import ConvNeuralNet
+
 import torch
 import torchvision.transforms as transforms
+from PIL import Image
 
+import constants as const
+from neural_network import ConvNeuralNet
 
 # Initialize model and use chosen device
 model = ConvNeuralNet().to(const.DEVICE)
