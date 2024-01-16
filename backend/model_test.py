@@ -30,9 +30,12 @@ correct_pred = 0
 # Loop through testing data, checking if model predictions match data targets. Update counters
 with torch.no_grad():
     for data, target in test_loader:
+        # Convert data and target to specified device
         data, target = data.clone().detach().to(const.DEVICE), target.to(const.DEVICE)
+        # Get the model prediction
         output = model(data)
         _, prediction = torch.max(output.data, 1)
+        # Update counters
         total_tests += target.size(0)
         correct_pred += (prediction == target).sum().item()
 
